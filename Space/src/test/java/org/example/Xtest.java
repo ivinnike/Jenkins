@@ -17,10 +17,11 @@ import javax.swing.*;
 class Xtest {
 
     public static WebDriver driver;
-    private static Object Authorization;
+    private By email;
+    private By password;
 
 
-    //Authorization getAuthorization = new Authorization();
+    Authorization getAuthorization = new Authorization(driver);
 
 
     @BeforeAll
@@ -39,7 +40,6 @@ class Xtest {
     @BeforeClass
     public static void setup() {
         driver = new ChromeDriver();
-        Authorization = new Authorization(driver);
     }
 
     @AfterEach
@@ -48,17 +48,17 @@ class Xtest {
             driver.quit();
         }
     }
-    @Test
-    public void navigateComputers(){
-        new Authorization(getWebDriver()).navigateComputers();
-}
+   // @Test
+   // public void navigateComputers(){
+      //  new Authorization(getWebDriver()).navigateComputers();
+//}
 
 
 
 
     @Test
   public void authorization() {
-        Authorization.inputEmail.getProperty(email);
+        Authorization.inputEmail.findElement(email);
     Authorization.inputPassword.findElement(password);
      Authorization.clickLoginBtn.click();
 
