@@ -6,15 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Authorization {
-    public static WebElement inputEmail;
-    public static WebElement inputPassword;
-    public static WebElement clickLoginBtn;
-    private static WebElement computer;
-    public String email = "iravinnike@gmail.com";
-    public String password = "1gnomik0";
+
     public WebDriver driver;
-
-
 
     public Authorization(WebDriver driver) {
         PageFactory.initElements(driver,this);
@@ -23,39 +16,29 @@ public class Authorization {
     }
 
     @FindBy
-            (xpath = "//a[@class='hover']")
-    private static WebElement computers;
-    @FindBy
             (xpath = "//input[@class='email']")
-    private static WebElement emailField;
+    static WebElement inputEmail;
 
     @FindBy
             (xpath = "//input[@class='password']")
-    private static WebElement passwordField;
+     static WebElement inputPassword;
+
     @FindBy
             (xpath = "//input[@class='button-1 login-button']")
-    private static WebElement Login;
+    static WebElement clickLoginBtn;
 
+    @FindBy
+            (xpath = "//input[@id='small-searchterms']")
+    static WebElement search;
 
-    public static void navigateComputers (){
+    @FindBy
+            (xpath = "//input[@class='button-1 search-box-button']")
+    static WebElement searchButton;
 
-        computer.click();
-    }
+   @FindBy
+       (xpath = "/html/body/div[4]/div[1]/div[2]/ul[1]/li[2]/a")
+  static WebElement computerButton;
 
-    public static void inputEmail(String email) {
-
-        emailField.sendKeys(email);
-    }
-    public static void inputPassword(String password) {
-
-        passwordField.sendKeys(password);
-    }
-    public static void clickLoginBtn() {
-        Login.click(); }
-
-    void quit() {
 
     }
 
-
-}

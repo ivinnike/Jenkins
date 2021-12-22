@@ -7,21 +7,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.testng.annotations.AfterClass;
 
 import javax.swing.*;
+import java.util.concurrent.TimeUnit;
 
-class Xtest {
+public class Xtest {
 
     public static WebDriver driver;
-    private By email;
-    private By password;
-
-
-    Authorization getAuthorization = new Authorization(driver);
 
 
     @BeforeAll
@@ -37,37 +34,39 @@ class Xtest {
         driver.manage().window().maximize();
 
     }
+
     @BeforeClass
     public static void setup() {
+
         driver = new ChromeDriver();
     }
 
-    @AfterEach
-    void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-   // @Test
-   // public void navigateComputers(){
-      //  new Authorization(getWebDriver()).navigateComputers();
-//}
-
-
-
 
     @Test
-  public void authorization() {
-        Authorization.inputEmail.findElement(email);
-    Authorization.inputPassword.findElement(password);
-     Authorization.clickLoginBtn.click();
+    void login() {
 
-  }
+        WebElement inputEmail = driver.findElement(By.cssSelector("#Email"));
+        inputEmail.sendKeys("iravinnike@gmail.com");
+        WebElement inputPassword = driver.findElement(By.cssSelector("#Password"));
+        inputPassword.sendKeys("1gnomik0");
+        WebElement clickLoginBtn = driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.center-2 > div > div.page-body > div.customer-blocks > div.returning-wrapper > div.form-fields > form > div.buttons > input"));
+        clickLoginBtn.click();
+    }
+    @Test
+    void Search(){
+        WebElement search = driver.findElement(By.cssSelector("#small-searchterms"));
+        search.sendKeys("Fiction");
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
- }
+        WebElement searchButton = driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div.header > div.search-box > form > input.button-1.search-box-button"));
+        searchButton.click();
+    }
+    @Test
+    void computer(){
+        WebElement computerButton = driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div.header-menu > ul.top-menu > li:nth-child(2) > a"));
+       computerButton.click();
+    }
+    void quit() {
 
-    //  @Test
-  //  void test() {
-        //input[@name="customer[email]"]
-        //input[@name="customer[password]"]
-
+    }
+}
