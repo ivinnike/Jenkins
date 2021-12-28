@@ -1,44 +1,62 @@
 package org.example;
 
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Authorization {
+import java.awt.*;
+import java.util.Set;
 
-    public WebDriver driver;
-
-    public Authorization(WebDriver driver) {
-        PageFactory.initElements(driver,this);
-        this.driver = driver;
-        WebDriver getWebDriver;
-    }
+public class Authorization extends Haed {
 
     @FindBy
             (xpath = "//input[@class='email']")
-    static WebElement inputEmail;
+    private WebElement email;
 
     @FindBy
             (xpath = "//input[@class='password']")
-     static WebElement inputPassword;
-
+    private WebElement password;
     @FindBy
             (xpath = "//input[@class='button-1 login-button']")
-    static WebElement clickLoginBtn;
+    private WebElement clickLoginBtn;
 
     @FindBy
             (xpath = "//input[@id='small-searchterms']")
-    static WebElement search;
+    private WebElement search;
 
     @FindBy
             (xpath = "//input[@class='button-1 search-box-button']")
-    static WebElement searchButton;
-
-   @FindBy
-       (xpath = "/html/body/div[4]/div[1]/div[2]/ul[1]/li[2]/a")
-  static WebElement computerButton;
+    private WebElement searchButton;
 
 
+    public Authorization(WebDriver webDriver) {
+        super(webDriver);
     }
 
+
+    public Authorization setEmail(String email) {
+        this.email.sendKeys(email);
+        return this;
+    }
+
+    public Authorization setPassword(String password) {
+        this.password.sendKeys(password);
+        return this;
+    }
+
+    public void clickLoginBtn() {
+        this.clickLoginBtn.click();
+    }
+
+    public void searchButton() {
+        this.searchButton.click();
+    }
+
+    public Authorization search(String search) {
+        this.search.sendKeys(search);
+        return this;
+    }
+
+}
