@@ -1,8 +1,10 @@
 package org.example;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,6 +12,7 @@ import java.awt.*;
 import java.util.Set;
 
 public class Authorization extends Haed {
+
 
     @FindBy
             (xpath = "//input[@class='email']")
@@ -32,6 +35,7 @@ public class Authorization extends Haed {
 
 
     public Authorization(WebDriver webDriver) {
+
         super(webDriver);
     }
 
@@ -58,5 +62,6 @@ public class Authorization extends Haed {
         this.search.sendKeys(search);
         return this;
     }
+
 
 }

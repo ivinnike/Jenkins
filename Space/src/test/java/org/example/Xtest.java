@@ -48,43 +48,37 @@ public class Xtest {
     @Test
     void login() {
         webDriver.get("http://demowebshop.tricentis.com/login");
-       new Authorization(getWebDriver()).setEmail("iravinnike@gmail.com").setPassword("1gnomik0").clickLoginBtn();
-
-
+        new Authorization(getWebDriver()).setEmail("iravinnike@gmail.com").setPassword("1gnomik0").clickLoginBtn();
     }
 
     @Test
     void search() {
-        //  webDriver.get("http://demowebshop.tricentis.com/login");
+        webDriver.get("http://demowebshop.tricentis.com/login");
         new Authorization(getWebDriver()).search("Camera").searchButton();
     }
-    
+
     @Test
-    void add(String password) {
-        // webDriver.manage().addCookie(readCookiesFromFile("ck"));
-        webDriver.get("http://demowebshop.tricentis.com/customer/changepassword");
-        // WebElement webElement = webDriver.findElement(By.id("1"));
-//webElement.click();
-        //  Actions Authorization = new Actions(webDriver);
-        //Authorization.sendKeys(webDriver.findElement(By.xpath("//input[@name='OldPassword']")),"1gnomik0")
+    void add() {
+        webDriver.get("http://demowebshop.tricentis.com/customer/addressadd");
+        webDriver.findElement(By.xpath("//input[@id='Address_FirstName']")).click();
+        Actions actions = new Actions(webDriver);
+        actions.sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_FirstName']")), "Kotikov").click()
+                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_LastName']")), "Vasy").click()
+                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_Email']")), "kot@y.dog").click()
+                .sendKeys(webDriver.findElement(By.xpath("//select[@data-val-number='The field Country must be a number.']")), "Russia").click()
+                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_City']")), "Moscow").click()
+                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_Address1']")), "yl.Mays 15-1-30").click()
+                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_ZipPostalCode']")), "117570").click()
+                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_PhoneNumber']")), "+7900789-09-00").sendKeys()
+                .sendKeys(webDriver.findElement(By.xpath("//input[@value='Save']"))).click().build().perform();
+    }
 
-
-      /*Actions password = Authorization.sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_FirstName']")), "Kotikov").click(password)
-           .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_LastName']")), "Vasy").click().build().perform();
-        .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_Email']")), "kot@y.dog").click()
-        .sendKeys(webDriver.findElement(By.xpath("//select[@data-val-number='The field Country must be a number.']")),"Russia").click()
-         .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_City']")), "Moscow").click()
-    .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_Address1']")), "yl.Mays 15-1-30").click()
-    .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_ZipPostalCode']")), "117570").click()
-    .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_PhoneNumber']")), "+7900789-09-00").sendKeys()
-     .sendKeys(webDriver.findElement(By.xpath("//input[@value='Save']"))).click().build().perform();*/
-
-     /*   @AfterEach
+       @AfterEach
         void exit () {
             webDriver.quit();
         }
-    }*/
-//}
+}
+
 
 
 

@@ -2,7 +2,10 @@ package org.example;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.Set;
 
@@ -11,10 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class CookieTests extends Xtest {
-    @BeforeEach
-    public void launchApp(){
-        webDriver.get("http://demowebshop.tricentis.com/login");
-    }
 
 
     @Test
@@ -25,7 +24,9 @@ public class CookieTests extends Xtest {
     }
     @Test
   public void thenCookiesExist() {
-        webDriver.navigate().to("http://demowebshop.tricentis.com/customer/info");
+        webDriver.navigate().to("http://demowebshop.tricentis.com/customer/addressadd");
+        webDriver.findElement(By.xpath("//input[@id='Address_FirstName']")).click();
+
     }
     Set<Cookie> cookies = webDriver.manage().getCookies();
 }
