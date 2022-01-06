@@ -2,7 +2,7 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+  <modelVersion>5.0.0</modelVersion>
 
   <groupId>org.example</groupId>
   <artifactId>Space</artifactId>
@@ -10,16 +10,26 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <version>5.6.2</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.0.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.1.0</version>
     </dependency>
       <dependency>
           <groupId>org.springdoc</groupId>
@@ -38,31 +48,86 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-support</artifactId>
+      <version>4.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>RELEASE</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>RELEASE</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
-  <plugins>
-  <plugin>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>3.0.0-M5</version>
-  </plugin>
-  <plugin>
-    <artifactId>maven-failsafe-plugin</artifactId>
-    <version>2.12</version>
-  </plugin>
-  <plugin>
-    <artifactId>maven-surefire-report-plugin</artifactId>
-    <version>3.0.0-M5</version>
-  </plugin>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-site-plugin</artifactId>
-      <version>3.7.1</version>
-    </plugin>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-project-info-reports-plugin</artifactId>
-      <version>3.0.0</version>
-    </plugin>
-  </plugins>
+    <plugins>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.21.0</version>
+        <configuration>
+          <testFailureIgnore>false</testFailureIgnore>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <systemProperties>
+            <property>
+              <name>junit.jupiter.extensions.autodetection.enabled</name>
+              <value>true</value>
+            </property>
+          </systemProperties>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-surefire-provider</artifactId>
+            <version>1.2.0</version>
+          </dependency>
+          <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjweaver</artifactId>
+          <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.10.0</version>
+        <configuration>
+<!--          <reportVersion>2.4.1</reportVersion>-->
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
