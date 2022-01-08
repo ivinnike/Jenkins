@@ -1,17 +1,10 @@
 package org.example;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import java.awt.*;
-import java.util.Set;
-
-public class Authorization extends Haed {
+public class Authorization extends Driver{
 
 
     @FindBy
@@ -33,6 +26,22 @@ public class Authorization extends Haed {
             (xpath = "//input[@class='button-1 search-box-button']")
     private WebElement searchButton;
 
+    @FindBy
+            (xpath = "//input[@id='OldPassword']")
+    private WebElement Oldpassword;
+
+    @FindBy
+            (xpath = "//input[@id='NewPassword']")
+    private WebElement newpassword;
+
+    @FindBy
+            (xpath = "//input[@id='ConfirmNewPassword']")
+    private WebElement confirmpassword;
+
+    @FindBy
+            (xpath = "//input[@value='Change password']")
+    private WebElement changeBtn;
+
 
     public Authorization(WebDriver webDriver) {
 
@@ -51,16 +60,36 @@ public class Authorization extends Haed {
     }
 
     public void clickLoginBtn() {
+
         this.clickLoginBtn.click();
     }
 
     public void searchButton() {
+
         this.searchButton.click();
     }
 
     public Authorization search(String search) {
         this.search.sendKeys(search);
         return this;
+    }
+
+    public Authorization setOldpassword(String Oldpassword) {
+        this.Oldpassword.sendKeys(Oldpassword);
+        return this;
+    }
+    public Authorization setNewpassword(String newpassword) {
+        this.newpassword.sendKeys(newpassword);
+        return this;
+    }
+    public Authorization setConfirmpassword(String confirmpassword) {
+        this.confirmpassword.sendKeys(confirmpassword);
+        return this;
+    }
+
+    public void changeBtn() {
+
+        this.changeBtn.click();
     }
 
 
