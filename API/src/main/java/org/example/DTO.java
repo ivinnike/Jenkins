@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class DTO {
+
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonPropertyOrder({
             "data",
@@ -19,7 +21,6 @@ public class DTO {
         private Boolean success;
         @JsonProperty("status")
         private Integer status;
-
         @JsonInclude(JsonInclude.Include.NON_NULL)
         @lombok.Data
         public class AccountInfoData {

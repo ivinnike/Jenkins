@@ -1,10 +1,11 @@
 package org.example;
 
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.ResponseSpecification;
+import lombok.ToString;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,9 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class Images {
+@ToString
+public class Images extends DTO{
+
     static Map<String, String> headers = new HashMap<>();
     static ResponseSpecification responseSpecification;
 
@@ -31,37 +34,20 @@ public class Images {
 
     @Test
     void getImageTest() {
-        DTO.AccountInfoResponse response = (DTO.AccountInfoResponse) given()
-                .contentType("application/json; charset=utf-8")
+        AccountInfoResponse response = (AccountInfoResponse) given()
                 .log().all()
-                .when().body("{\n" +
-                        "        \"id\": \"48WkbrB\",\n" +
-                        "        \"title\": \"1x1 Pixel\",\n" +
-                        "        \"description\": \"This is an 1x1 pixel image.\",\n" +
-                        "        \"datetime\": 1643483422,\n" +
-                        "        \"type\": \"image/jpeg\",\n" +
-                        "        \"width\": 660,\n" +
-                        "        \"height\": 420,\n" +
-                        "        \"size\": 53623,\n" +
-                        "        }")
+                .when().body("")
                 .request("GET","https://api.imgur.com/3/image")
                 .then()
                 .spec(responseSpecification);
     }
     @Test
     public void uploadImageTest(){
-        DTO.AccountInfoResponse response = (DTO.AccountInfoResponse) given()
-                .contentType("application/json; charset=utf-8")
-                .log().all()
-                .when().body("{\n" +
-                        "        \"id\": \"5gbcwWG\",\n" +
-                        "        \"deletehash\": \"EgcKMxcSpyvXOV7\",\n" +
-                        "        \"account_id\": 159123277,\n" +
-                        "        \"account_url\": \"ivinnike\",\n"+
-                        "    }")
+        AccountInfoResponse response = (AccountInfoResponse) given()
+                .when().body("")
                 .request("POST","https://api.imgur.com/3/upload")
                 .then()
-                .spec(responseSpecification);;
+                .spec(responseSpecification);
         given().
                 multiPart(new File("/Desktop/space.jpeg"))
                 .when()
@@ -69,28 +55,16 @@ public class Images {
     }
     @Test
     public void deletImageTest(){
-        DTO.AccountInfoResponse response = (DTO.AccountInfoResponse) given()
-                .contentType("application/json; charset=utf-8")
-                .log().all()
-                .when().body("{\n" +
-                        "            \"data\": true,\n" +
-                        "                \"success\": true,\n" +
-                        "                \"status\": 200\n" +
-                        "        }")
+        AccountInfoResponse response = (AccountInfoResponse) given()
+                .when().body("")
                 .delete("https://api.imgur.com/3/image/{{imageDeleteHash}}")
                 .then()
                 .spec(responseSpecification);
     }
     @Test
     public void updateImageInfoTest(){
-        DTO.AccountInfoResponse response = (DTO.AccountInfoResponse) given()
-                .contentType("application/json; charset=utf-8")
-                .log().all()
-                .when().body("{\n" +
-                        "    \"data\": true,\n" +
-                        "    \"success\": true,\n" +
-                        "    \"status\": 200\n" +
-                        "}")
+        AccountInfoResponse response = (AccountInfoResponse) given()
+                .when().body("")
                 .delete("https://api.imgur.com/3/image/{{imageDeleteHash}}")
                 .then()
                 .spec(responseSpecification);
