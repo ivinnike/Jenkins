@@ -7,9 +7,9 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Data
-public class Category {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Data
+    public class Category {
     @JsonProperty("id")
     private Integer id;
     @JsonProperty("title")

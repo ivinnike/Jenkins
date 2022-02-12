@@ -23,10 +23,5 @@ public class TestCategory {
    void TestGet(){
        Response<Category> response = service.getCategory(1).execute();
             assertThat(response.isSuccessful(),CoreMatchers.is(true));
-
-
     }
-
-
-
 }

@@ -11,8 +11,7 @@ import ru.geekbrains.java4.lesson6.db.model.Products;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Getter
     @With
     @NoArgsConstructor

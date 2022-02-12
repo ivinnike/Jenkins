@@ -6,9 +6,6 @@ import retrofit2.http.*;
 
 
 public interface ServiceProduct {
-
-
-
     @GET("products")
     Call<Category> getProduct(@Body Category FoodResponseRequest);
 
