@@ -37,8 +37,7 @@ public class SiteTest {
 
         return webDriver;
     }
-
-    @BeforeAll
+   @BeforeAll
     static void setupClass() {
 
         WebDriverManager.chromedriver().setup();
@@ -60,53 +59,6 @@ public class SiteTest {
     @Test
     void login() {
         webDriver.get("http://demowebshop.tricentis.com/login");
-        new Authorization(getWebDriver()).setEmail("iravinnike@gmail.com").setPassword("test10").clickLoginBtn();
+        new Authorization(getWebDriver()).setEmail("iravinnike@gmail.com").setPassword("test11").clickLoginBtn();
     }
 }
-
-
-
-
-
-
-
-
-
-  /* @Test
-    void add() {
-   */
-      /*  WebElement webElement = webDriver.findElement(By.xpath("//input[@id='Address_FirstName']"));
-        webElement.click();
-        webDriver.findElement(By.xpath("//input[@id='Address_FirstName']")).click();
-        Actions actions = new Actions(webDriver);
-        actions.sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_FirstName']")), "Kotikov").click(webElement)
-                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_LastName']")), "Vasy").click()
-                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_Email']")), "kot@y.dog").click()
-                .sendKeys(webDriver.findElement(By.xpath("//select[@data-val-number='The field Country must be a number.']")), "Russia").click()
-                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_City']")), "Moscow").click()
-                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_Address1']")), "yl.Mays 15-1-30").click()
-                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_ZipPostalCode']")), "117570").click()
-                .sendKeys(webDriver.findElement(By.xpath("//input[@id='Address_PhoneNumber']")), "+7900789-09-00").sendKeys()
-                .sendKeys(webDriver.findElement(By.xpath("//input[@value='Save']"))).click().build().perform();*/
-
-
-      /* @AfterEach
-        void exit () {
-        LogEntries browserLogs = webDriver.manage().logs().get(LogType.BROWSER);
-        List<LogEntry> allLogRows = browserLogs.getAll();
-        if (allLogRows.size() > 0 ) {
-        }
-        webDriver.quit();
-    }*/
-
-
-
-
-
-
-//  WebElement inputEmail = webDriver.findElement(By.cssSelector("#Email"));
-//  inputEmail.sendKeys("iravinnike@gmail.com");
-//  WebElement inputPassword = webDriver.findElement(By.cssSelector("#Password"));
-//  inputPassword.sendKeys("1gnomik0");
-//  WebElement clickLoginBtn = webDriver.findElement(By.xpath("//input[@class='button-1 login-button']"));
-//   clickLoginBtn.click();

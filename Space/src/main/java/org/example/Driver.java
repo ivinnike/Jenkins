@@ -15,6 +15,4 @@ public abstract class Driver{
 
         return this.webDriver;
     }
-
-
 }
