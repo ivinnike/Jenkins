@@ -91,5 +91,4 @@ public class Authorization extends Driver{
         this.changeBtn.click();
     }
 
-
 }

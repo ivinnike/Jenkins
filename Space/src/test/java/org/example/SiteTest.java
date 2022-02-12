@@ -24,14 +24,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.assertThat;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class SiteTest {
 
     static WebDriver webDriver;
-   public Screenshot MyUtils;
+    public Screenshot MyUtils;
 
     public WebDriver getWebDriver() {
 

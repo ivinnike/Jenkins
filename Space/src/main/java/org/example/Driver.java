@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 
-public abstract class Driver{
+    public abstract class Driver{
     public WebDriver webDriver;
 
     public Driver(WebDriver webDriver){

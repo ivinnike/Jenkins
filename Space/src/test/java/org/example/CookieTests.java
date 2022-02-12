@@ -18,7 +18,7 @@ public class CookieTests extends SiteTest {
     }
     @Test
     @Epic("Смена параля")
-  public void thenCookiesExist() {
+    public void thenCookiesExist() {
         webDriver.navigate().to("http://demowebshop.tricentis.com/customer/changepassword");
         webDriver.findElement(By.xpath("//input[@id='OldPassword']")).click();
         new Authorization(getWebDriver()).setOldpassword("test11").setNewpassword("test10").setConfirmpassword("test10").changeBtn();
