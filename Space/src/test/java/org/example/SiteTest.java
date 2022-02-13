@@ -28,7 +28,6 @@ import static org.junit.Assert.assertThat;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class SiteTest {
-
     static WebDriver webDriver;
     public Screenshot MyUtils;
 

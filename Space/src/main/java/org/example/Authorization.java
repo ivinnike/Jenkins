@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class Authorization extends Driver{
-
     @FindBy
             (xpath = "//input[@class='email']")
     private WebElement email;

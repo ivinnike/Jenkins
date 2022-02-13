@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 
 public class CookieTests extends SiteTest {
-
     @Test
     @Epic("Вход")
     public void testAddCookie(){
